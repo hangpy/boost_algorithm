@@ -42,6 +42,8 @@
 
 [입출력 제약사항 반드시 확인할 것](./BAEK_1504#실수한-부분)
 
+[비어있는 queue에서 계속 front(), pop() 시도](./BAEK_3190#실수한-부분)
+
 <br>
 
 <br>
@@ -71,6 +73,10 @@ C++에서 무한대 표현하기 (예정)
 <br>
 
 <br>
+
+## &#128534; 에러별  대처 모음
+
+[Expression: deque iterator not dereferencable](./errors#Queue가-비어있는데-참조를-시도할-때) (예정)
 
 
 
@@ -109,6 +115,8 @@ C++에서 무한대 표현하기 (예정)
 
 
 ## &#127816; Simulation
+
+[BAEK 3190. 뱀](./BAEK_3190)
 
 <br>
 
