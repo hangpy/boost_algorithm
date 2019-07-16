@@ -23,7 +23,7 @@
     <ProjectGuid>{125B3C6B-E4E7-41C7-B4A1-B1AEEF4E5346}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>p215lowjumpgame</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
