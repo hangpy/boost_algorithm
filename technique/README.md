@@ -24,6 +24,16 @@ C++에서 무한대 표현하기 (예정)
 
 방향성 표현하기 (예정)
 
+컨테이너속 노드에 구조체를 통해 상태 추가하기 (예정)
+
+[STL 정렬함수 활용하기](#STL-정렬함수-활용하기)
+
+문자열 처리 관련 STL 활용밥 숙지 (예정)
+
+vector에서 중복 원소 제거하기 (예정)
+
+for문 안에서 증감부 조작으로 로직 간소화하기 (예정)
+
 <br>
 
 <br>
@@ -61,7 +71,7 @@ do
         cout << arr[i] << " ";
     cout << endl;
 } 	// 전체 다 할 거라면 next_arr의 원소 개수만큼 더하기
-while (next_permutation(prev_arr, prev_arr + len));
+while (prev_permutation(prev_arr, prev_arr + len));
 ```
 
 아래와 같이 직접 구현해서 할 수도 있다.
@@ -306,4 +316,172 @@ void r_combination(int m, int n, int depth, int index)
 <br>
 
 <br>
+
+## STL 정렬함수 활용하기
+
+### \<algorithm\> sort() 이해하기
+
+```cpp
+template <class RandomAccessIterator>
+void sort (RandomAccessIterator first, RandomAccessIterator last);
+
+template <class RandomAccessIterator, class Compare>
+void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+```
+
+sort는 기본적으로 오름차순을 기준으로 한다. 또한 인자로 반드시 임의접근 반복자를 사용해야만 한다. 순차접근 반복자를 사용하는 list와 같은 자료구조는 해당 sort를 사용할 수 없다. 비교중에 같은 원소는 원래의 정렬 상태를 보장하진 않는다. 보장하고 싶다면 `stable_sort()`를 참고하도록 하자.
+
+시간복잡도는 대략 인자로 들어가는 두 반복자의 distance에 비례해서 nlogn에 수렴한다.
+
+[sort 참고자료](http://www.cplusplus.com/reference/algorithm/sort/)
+
+<br>
+
+### greater, less 단어 이해하기
+
+```cpp
+bool cmp(int t, int u)
+{
+	return t > u; // greater
+    // return t < u; // less
+}
+```
+
+sort()에서 쓰이는 greater, less는 `왼쪽이 오른쪽에 비해서`를 기준으로 삼는다. 즉, greater ( > )는 내림차순을, less ( < )는 오름차순을 뜻한다. 위와 같은 기준만 잘 숙지한다면 비교연산을 커스터마이징할 때 헷갈릴 일이 없을 것이다.
+
+<br>
+
+### operator < 로 비교하기
+
+
+
+<br>
+
+### std::비교함수객체로 비교하기
+
+
+
+<br>
+
+### 자체 함수객체로 비교하기
+
+
+
+<br>
+
+### 연산자 재정의(bool operator<(){})된 객체로 비교하기
+
+구조체를 사용할 경우, 클래스를 사용할 때 보다 더 단순한 형태를 유지할 수 있다.
+
+```cpp
+struct xy
+{
+	int x, y;
+	bool operator<(xy &u)
+	{
+        // 오른쪽이 더 크지 않은 경우에 두 비교 원소를 바꾸는 듯 하다.
+        // 즉 true일 때는 두 비교 원소를 그대로 두는 듯 함.
+		if (this->x < u.x) return true;
+        // 그렇다면 두 비교 원소가 같아도 바꾼다는 뜻인데, 해당 경우
+        // y를 기준으로 두 원소의 swap 여부를 판안한다.
+		else if (this->x == u.x)
+		{
+            // 역시 오른쪽 y가 더 큰 경우엔 true를 반환해서 그대로 둔다.
+			return this->y < u.y;
+		}
+        // 그 외의 경우엔 모두 swap한다.
+		else return false;
+	}
+};
+
+int main()
+{
+	xy arr[10] = { {9, 2}, {9, 5}, {9,4}, {1, 5}, {1, 10},
+	{3, 7}, {4, 12}, {11 ,0}, {5, 1}, {-1, 13} };
+
+	vector<xy> varr = { {9, 2}, {9, 5}, {9,4}, {1, 5}, {1, 10},
+	{3, 7}, {4, 12}, {11 ,0}, {5, 1}, {-1, 13} };
+
+	sort(arr, arr + 10);
+	sort(varr.begin(), varr.end());
+
+	for (auto i : varr) cout << "( " << i.x << ", " << i.y << " )" << " ";
+}
+
+/*
+결과
+( -1, 13 ) ( 1, 5 ) ( 1, 10 ) ( 3, 7 ) ( 4, 12 ) ( 5, 1 ) ( 9, 2 ) ( 9, 4 ) ( 9, 5 ) ( 11, 0 )
+*/
+```
+
+클래스로 구현할 경우
+
+```cpp
+class xy
+{
+public:
+	int x, y;
+	xy(int x, int y) : x(x), y(y) {};
+    // 이번에는 내림차순으로 구현할 경우
+	bool operator<(xy &u)
+	{
+		if (this->x > u.x) return true;
+		else if (this->x == u.x) return this->y > u.y;
+		else return false;
+	}
+};
+
+int main()
+{
+    // 다음과 같은 문법 모두 가능
+	xy arr[10] = { xy(9,2), {9, 5}, {9,4}, {1, 5}, {1, 10},
+	{3, 7}, {4, 12}, {11 ,0}, {5, 1}, {-1, 13} };
+
+	vector<xy> varr = { {9, 2}, {9, 5}, {9,4}, {1, 5}, {1, 10},
+	{3, 7}, {4, 12}, {11 ,0}, {5, 1}, {-1, 13} };
+
+	vector<xy> varr2;
+    // 일반적인 인스턴스 정의
+	varr2.push_back(xy(1,2));
+    // 구조체 인스턴스 생성과 똑같은 문법 적용 가능
+	varr2.push_back({ 1,3 });
+	varr2.push_back({ 10,0 });
+	varr2.push_back(xy(10, -10));
+	xy obj = xy(10, 5);
+	varr2.push_back(obj);
+	
+	sort(arr, arr + 10);
+	sort(varr.begin(), varr.end());
+	sort(varr2.begin(), varr2.end());
+
+	for (auto i : arr)
+		cout << "( " << i.x << ", " << i.y << " )" << " ";
+	
+	return 0;
+}
+```
+
+여기서 눈여겨 볼 문법은 객체를 선언 정의할 때 초기화를  구조체와 같이 `{ }`로 가능하다는 것이다.
+
+<br>
+
+
+
+
+
+
+
+<br>
+
+<br>
+
+<br>
+
+
+
+
+
+
+
+
 
