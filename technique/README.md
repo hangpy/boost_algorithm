@@ -16,7 +16,7 @@ C++에서 무한대 표현하기 (예정)
 
 소수점 밑 반올림 (예정)
 
-우선순위 큐 (priority_queue) 활용 방법 및 중복 방지 (예정)
+[우선순위 큐 (priority_queue) 활용 방법 및 중복 방지](#우선순위-큐-활용하기)
 
 [순열 조합 구현하기](#순열-조합-구현하기)
 
@@ -33,6 +33,51 @@ C++에서 무한대 표현하기 (예정)
 vector에서 중복 원소 제거하기 (예정)
 
 for문 안에서 증감부 조작으로 로직 간소화하기 (예정)
+
+<br>
+
+<br>
+
+<br>
+
+## 우선순위 큐 활용하기
+
+(수정 예정)
+
+less\<T\> 가 default. 하지만 sort랑은 다르게 max-heap으로 순서대로 원소를 꺼낼 때 내림차순 효과.
+
+무엇이 다른것인가? a < b 에서 true일 때 swap하지 않는 것은 똑같다. 
+
+다만 새로 추가하는 것이 자식노드로 삽입된다. 여기서 max-heap의 논리구조에 a를 자식노드로, b를 부모노드로 본다면 이해가 쉽게 된다. 즉, 새로추가된 자식노드인 a가 b보다 작은 것이 맞다면(true) 바꿔도 되지 않으므로 가장 큰 노드가 가장 위의 뿌리 (가장 높은 부모)로 있는 max-heap, 즉, 꺼낼 때 내림차순이 되는 것.
+
+sort와 혼동하지 않도록 한다.
+
+또한 아래를 보자
+
+```cpp
+#include <queue>
+
+struct xy
+{
+    int x, y;
+}
+
+struct cmp
+{
+    bool operator()(const xy &t const xy &u)
+    {
+        // less -> max-heal -> 내림차순
+        if(t.x < u.x) return true;
+        // 같을 경우, y를 max-heap -> 내림차순
+        else if(t.x == u.x) return t.y < u.y;
+        else return false;
+    }
+}
+
+priority_queue<xy, vector<xy>, cmp> pq;
+```
+
+이런 경우, sort에서 마지막 인자로 less\<int\>() 와 같이 임시객체를 준 것과 다르게, priority_queue같은 경우, 템플릿의 인자로써 `type`자체를 줬다. 이 또한, sort의 방식과 혼동하지 않도록 한다.
 
 <br>
 
