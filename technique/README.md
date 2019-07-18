@@ -205,13 +205,6 @@ int main()
 ![](./assets/combination.gif)
 
 ```cpp
-/*
- ================================================
- + 
- +
- ================================================
-*/
-
 int picked[10];
 int data[] = { 1,2,3,4,5,6,7,8,9,10 };
 
@@ -227,6 +220,7 @@ void combination(int m, int n, int size)
 
 		return;
 	}
+    // 앞으로 픽할 것 보다 후보군이 적을 때
 	else if (m < n) return;
 	else
 	{
@@ -353,19 +347,113 @@ sort()에서 쓰이는 greater, less는 `왼쪽이 오른쪽에 비해서`를 �
 
 ### operator < 로 비교하기
 
+< 연산자 재정의를 통한 비교는 아래를 참고.
 
+```cpp
+int main()
+{
+	int arr[10] = { 1,10,8,4,6,7,5,2,3,9 };
+	
+    // 세 번째 인자를 넣지 않으면 오름차순으로 < 연산을 통해 정렬을 하게 됨.
+	sort(arr, arr + 10);
+
+	return 0;
+}
+```
 
 <br>
 
 ### std::비교함수객체로 비교하기
 
+less : 왼쪽 인자가 오른쪽 인자보다 작으면 true 반환
 
+greater : 왼쪽 인자가 오른쪽 인자보다 크면 true 반환
+
+greater\<int\> 뒤에 ()를 붙이는 것은 function object의 임시 객체를 생성하는 것이다.
+
+```cpp
+#include <functional>
+using namespace std;
+int main()
+{
+	int arr[10] = { 1,10,8,4,6,7,5,2,3,9 };
+	
+    // greater<int> cmp;
+    // sort(arr, arr + 10, cmp)도 가능
+	sort(arr, arr + 10, greater<int>());
+	for (auto i : arr)
+		cout << i << " ";
+	cout << endl;
+
+	sort(arr, arr + 10, less<int>());
+	for (auto i : arr)
+		cout << i << " ";
+	cout << endl;
+	
+	return 0;
+}
+// 결과
+/*
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+10, 9, 8, 7, 6, 5, 4, 3, 2, 1
+*/
+```
 
 <br>
 
+아래는 \<functional\> STL에 있는 greater (less도 비슷함) struct의 원형 구조이다. greater\<int\>()를 통해 생성된 임시객체에 (const T& x, const T& y)연산을 하게 되면 두 인자를 비교한 결과값을 반환하게 된다. 즉, sort에 다음과 같은 함수의 임시객체를 넣어준다는 뜻은, 배열 혹은 반복자 비교시, 해당 재정의된 함수호출 연산자를 통해 두 값을 비교함을 알 수 있다.
+
+```cpp
+template struct greater {
+    bool operator() (const T& x, const T& y) const 
+    {
+        return x>y;
+    }
+    typedef T first_argument_type;
+    typedef T second_argument_type;
+    typedef bool result_type;
+};
+```
+
 ### 자체 함수객체로 비교하기
 
+위의 \<functional\> STL의 비교함수객체를 이해했으면 아래의 자체 커스터마이징 함수객체 이용은 쉽게 이해가 가능하다.
 
+```cpp
+template <typename T>
+bool desc(const T& x, const T& y)
+{
+	return x > y;
+}
+
+template <typename T>
+struct asc
+{
+    // operator 뒤에 ()를 붙이는 것을 까먹기 쉽다.
+	bool operator()(const T& x, const T& y)
+	{
+		return x < y;
+	}
+};
+
+
+int main()
+{
+	int arr[10] = { 1,10,8,4,6,7,5,2,3,9 };
+
+	sort(arr, arr + 10, desc<int>);
+	for (auto i : arr)
+		cout << i << " ";
+	cout << endl;
+
+	sort(arr, arr + 10, asc<int>());
+	for (auto i : arr)
+		cout << i << " ";
+	cout << endl;
+	
+	return 0;
+}
+```
 
 <br>
 
@@ -465,9 +553,44 @@ int main()
 
 <br>
 
+#### STL Pair의 정렬
 
+pair를 sort함수로 정렬할 경우, 기본적으로 pair의 첫번째 원소를 기준으로 정렬하고, 첫번째 원소가 같다면, 두번째 원소를 사용해서 비교하게 된다.
 
+```cpp
+int main()
+{
+	pair<int, int> arr[10] = {
+		pair<int, int>(5, 10),
+		pair<int, int>(5, 1),
+		pair<int, int>(5, -10),
+		pair<int, int>(6, 3),
+		pair<int, int>(4, 3),
+		pair<int, int>(5, 90),
+		pair<int, int>(4, 2),
+		pair<int, int>(2, 2),
+		pair<int, int>(3, -1),
+		pair<int, int>(3, 11)
+	};
 
+	sort(arr, arr + 10);
+    
+    // 내림차순 시
+    // sort(arr, arr + 10, greater<pair<int, int> >());
+    // '>>'는 컴파일러에 따라 비트연산자로 인식될 가능성이 있으니 한칸 띄어쓰도록 하자.
+
+	for (auto i : arr)
+		cout << "(" << i.first << ", " << i.second << ") ";
+	cout << endl;
+
+	return 0;
+}
+// 결과
+// 오름차순 (2, 2) (3, -1) (3, 11) (4, 2) (4, 3) (5, -10) (5, 1) (5, 10) (5, 90) (6, 3)
+// 내림차순 (6, 3) (5, 90) (5, 10) (5, 1) (5, -10) (4, 3) (4, 2) (3, 11) (3, -1) (2, 2)
+```
+
+벡터를 사용할 경우에도 동일한 결과가 나온다.
 
 
 
