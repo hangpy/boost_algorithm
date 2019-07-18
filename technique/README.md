@@ -18,7 +18,7 @@ C++에서 무한대 표현하기 (예정)
 
 우선순위 큐 (priority_queue) 활용 방법 및 중복 방지 (예정)
 
-[순열, 조합 구현하기](#순열,-조합-구현하기)
+[순열 조합 구현하기](#순열-조합-구현하기)
 
 묶고 싶은 것은 구조체(struct)를 사용하자 (예정)
 
@@ -30,13 +30,11 @@ C++에서 무한대 표현하기 (예정)
 
 <br>
 
-## 순열, 조합 구현하기
+## 순열 조합 구현하기
 
 ### 순열(Permutation)
 
-$$
-_mP_n 
-$$
+![](./assets/permutation.gif)
 
 #### m == n 일 때
 
@@ -152,9 +150,7 @@ int main()
 
 ### 중복순열(Permutation with Repetition)
 
-$$
-_mΠ_n = m^n
-$$
+![](.\assets\permutation_repitition.gif)
 
 만약 문제가 중복된 결과를 허용하지 않을 경우 아래 구현된 함수는 중복된 원소가 없는 배열을 이용해야 한다. 만약 중복된 원소가 있을 경우, 중복된 원소를 모두 하나만 남겨둔 배열로 재생성한 후 n만 그대로 해서 함수를 호출 하면 된다. 
 
@@ -196,9 +192,7 @@ int main()
 
 ### 조합(Combination)
 
-$$
-_mC_n
-$$
+![](./assets/combination.gif)
 
 ```cpp
 /*
@@ -280,9 +274,7 @@ void combination(int m, int n, int depth, int index)
 
 ### 중복조합(Combination with Repetition)
 
-$$
-_mH_n ~ = ~ _{n+r-1}C_r
-$$
+![](./assets/combination_repitition.gif)
 
 ```cpp
 // mHn
@@ -306,6 +298,8 @@ void r_combination(int m, int n, int depth, int index)
 	}
 }
 ```
+
+[중복조합 개념글 링크](https://m.blog.naver.com/PostView.nhn?blogId=freewheel3&logNo=220785417706&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
 
 <br>
 
