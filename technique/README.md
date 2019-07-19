@@ -42,15 +42,17 @@ for문 안에서 증감부 조작으로 로직 간소화하기 (예정)
 
 ## 우선순위 큐 활용하기
 
-(수정 예정)
+less\<T\> 가 default 템플릿 Compare 타입이지만 sort()랑은 다르게 내림차순으로 원소가 정렬되어 있다. 모두 a < b가 true일 때, 모든 stl 정렬이 오름차순이면 좋겠지만, 그렇지 않음을 확인했다. STL에서 구현된 정렬 체계를 혼동하지 않을 필요가 있겠다.
 
-less\<T\> 가 default. 하지만 sort랑은 다르게 max-heap으로 순서대로 원소를 꺼낼 때 내림차순 효과.
+그렇다면 <algorithm\>의 sort()의 비교 커스터마이징과 무엇이 다른것인가? a < b 가 (즉, 비교 결과가) true일 때 비교 대상의 두 원소를 swap하지 않는 것은 sort()와 같다. 다만 우선순위 큐의 경우 **새로 추가하는 것이 자식노드로 삽입된다**. 여기서 max-heap은 부모가 자식보다 크다는 것을 생각하면서 a를 자식노드로, b를 부모노드로 본다면 왜 less<>임에도 내림차순인지 이해할 수 있다. 즉, 새로추가된 자식노드인 a가 b보다 작은 것이 맞다면(true) 바꿔도 되지 않으므로 가장 큰 노드가 가장 위의 뿌리 (가장 높은 부모)로 있는 max-heap, 즉, 꺼낼 때 내림차순이 되는 것이다. sort()와 priority_queue의 정렬체계를 혼동하지 않도록하자. 또한 기억하자.
 
-무엇이 다른것인가? a < b 에서 true일 때 swap하지 않는 것은 똑같다. 
+> STL의 비교 체계에서는 **strict weak ordering**이 적용된다.  
 
-다만 새로 추가하는 것이 자식노드로 삽입된다. 여기서 max-heap의 논리구조에 a를 자식노드로, b를 부모노드로 본다면 이해가 쉽게 된다. 즉, 새로추가된 자식노드인 a가 b보다 작은 것이 맞다면(true) 바꿔도 되지 않으므로 가장 큰 노드가 가장 위의 뿌리 (가장 높은 부모)로 있는 max-heap, 즉, 꺼낼 때 내림차순이 되는 것.
+[strict weak ordering 참고자료1](https://adnoctum.tistory.com/206)
 
-sort와 혼동하지 않도록 한다.
+[strict weak ordering 참고자료2](http://blog.naver.com/PostView.nhn?blogId=chogahui05&logNo=221301752836&parentCategoryNo=8&categoryNo=6&viewDate=&isShowPopularPosts=false&from=postView)
+
+<br>
 
 또한 아래를 보자
 
@@ -60,24 +62,33 @@ sort와 혼동하지 않도록 한다.
 struct xy
 {
     int x, y;
+    // 구조체 안에서 객체에 대한 operator<(xy &u) 재정의는
+    // 소용없음. priority_queue는 정렬 비교를 할 때, 함수를
+    // 사용함.
 }
 
 struct cmp
 {
     bool operator()(const xy &t const xy &u)
     {
-        // less -> max-heal -> 내림차순
+        // less -> max-heap -> 내림차순
         if(t.x < u.x) return true;
         // 같을 경우, y를 max-heap -> 내림차순
         else if(t.x == u.x) return t.y < u.y;
         else return false;
     }
 }
+int main()
+{
+    priority_queue<xy, vector<xy>, cmp> pq;
+    return 0;
+}
 
-priority_queue<xy, vector<xy>, cmp> pq;
 ```
 
 이런 경우, sort에서 마지막 인자로 less\<int\>() 와 같이 임시객체를 준 것과 다르게, priority_queue같은 경우, 템플릿의 인자로써 `type`자체를 줬다. 이 또한, sort의 방식과 혼동하지 않도록 한다.
+
+[우선순위 큐 참고자료](http://www.cplusplus.com/reference/queue/priority_queue/)
 
 <br>
 
