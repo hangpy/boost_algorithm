@@ -138,6 +138,8 @@ for문 안에서 증감부 조작으로 로직 간소화하기 (예정)
 
 [BAEK 9095. 1, 2, 3 더하기](./BAEK_9095)
 
+[algospot. WILDCARD](./solving_strategy/p218_inter_wildcard/p218_inter_wildcard.cpp)
+
 <br>
 
 <br>
