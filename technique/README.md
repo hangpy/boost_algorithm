@@ -22,7 +22,7 @@ C++에서 무한대 표현하기 (예정)
 
 묶고 싶은 것은 구조체(struct)를 사용하자 (예정)
 
-방향성 표현하기 (예정)
+[배열로 방향과 같은 변화 표현하기](#배열로-방향과-같은-변화-표현하기)
 
 컨테이너속 노드에 구조체를 통해 상태 추가하기 (예정)
 
@@ -89,6 +89,8 @@ int main()
 이런 경우, sort에서 마지막 인자로 less\<int\>() 와 같이 임시객체를 준 것과 다르게, priority_queue같은 경우, 템플릿의 인자로써 `type`자체를 줬다. 이 또한, sort의 방식과 혼동하지 않도록 한다.
 
 [우선순위 큐 참고자료](http://www.cplusplus.com/reference/queue/priority_queue/)
+
+<br>
 
 <br>
 
@@ -216,7 +218,7 @@ int main()
 
 ### 중복순열(Permutation with Repetition)
 
-![](.\assets\permutation_repitition.gif)
+![](./assets/permutation_repitition.gif)
 
 만약 문제가 중복된 결과를 허용하지 않을 경우 아래 구현된 함수는 중복된 원소가 없는 배열을 이용해야 한다. 만약 중복된 원소가 있을 경우, 중복된 원소를 모두 하나만 남겨둔 배열로 재생성한 후 n만 그대로 해서 함수를 호출 하면 된다. 
 
@@ -360,6 +362,102 @@ void r_combination(int m, int n, int depth, int index)
 ```
 
 [중복조합 개념글 링크](https://m.blog.naver.com/PostView.nhn?blogId=freewheel3&logNo=220785417706&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+## 배열로 방향과 같은 변화 표현하기
+
+### 단순 방향 표현하기
+
+행, 렬의 좌표가 시간의 흐름에 따라 바뀌는 방향을 배열로 표현할 수 있다.
+
+```cpp
+// 상하좌우 순으로 배열을 구성. 2차원 배열로도 가능.
+int drow = {-1, 1, 0, 0};
+int dcol = {0, 0, -1, 1};
+
+int row, col; // 현재의 row, col
+for(int i = 0; i < 4; i++)
+{
+    row += drow[i];
+    col += dcol[i];
+}
+```
+
+<br>
+
+### 특정 조건에 따라 결정될 수 있는 변화
+
+아래의 코드는 [SWEA 5650. 핀볼 게임](https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRF8s6ezEDFAUo) 문제 중, 특정 상황에서의 방향성 변화를 표현하는 함수를 구현한 것이다. 블럭에 마주쳤을 때, 블럭의 종류(5가지중 하나)와 현재의 방향(상하좌우 중)에 따라 다음 방향이 정해지는 함수이다. 하지만 아래의 함수가 고작 `int[6][4]`(5종류임에도 편의상 1부터 쓰기 위해 6으로 선언)의 정의 하나로 표현될 수 있다. 
+
+```cpp
+void change_direction(int block)
+{
+    if (block == 1)
+    {
+        if (curr_direction == 0) curr_direction = 1; // down -> right
+        else if (curr_direction == 1) curr_direction = 3; // right -> left
+        else if (curr_direction == 2) curr_direction = 0; // up -> down
+        else curr_direction = 2; // left -> up
+    }
+    else if (block == 2)
+    {
+        if (curr_direction == 0) curr_direction = 2; // down -> up
+        else if (curr_direction == 1) curr_direction = 3; // right -> left
+        else if (curr_direction == 2) curr_direction = 1; // up -> right
+        else curr_direction = 0; //left -> down
+    }
+    else if (block == 3)
+    {
+        if (curr_direction == 0) curr_direction = 2; // down -> up
+        else if (curr_direction == 1) curr_direction = 0; // right -> down
+        else if (curr_direction == 2) curr_direction = 3; // up -> left
+        else curr_direction = 1; // left -> right
+    }
+    else if (block == 4)
+    {
+        if (curr_direction == 0) curr_direction = 3; // down -> left
+        else if (curr_direction == 1) curr_direction = 2; // right -> up
+        else if (curr_direction == 2) curr_direction = 0;// up -> down
+        else curr_direction = 1; // left -> right
+    }
+    else // block == 5
+    {
+        if (curr_direction == 0) curr_direction = 2;
+        else if (curr_direction == 1) curr_direction = 3;
+        else if (curr_direction == 2) curr_direction = 0;
+        else curr_direction = 1;
+    }
+}
+```
+
+아래와 같은 방법은 알고리즘의 시간도 훨씬 더 단축시키고 실수할 확률도 낮출 수 있다. 다음과 같은 언어로 표현될 수 있는 변화는 일단, 배열로 정의할 수 있는지 생각해보자!
+
+```cpp
+// to down: 0, to right: 1, to up: 2, to left: 3
+int drow[4] = { 1, 0, -1, 0 };
+int dcol[4] = { 0, 1, 0, -1 };
+
+// changed_direction[block][current_direction]
+int changed_direction[6][4] = {
+	{0, 0, 0, 0},
+	{1, 3, 0, 2},
+	{2, 3, 1, 0},
+	{2, 0, 3, 1},
+	{3, 2, 0, 1},
+	{2, 3, 0, 1}
+};
+```
+
+> *i번째의 something(여기선 block)이 j번째의 something(여기선 방향)을 만났을 때 something(여기선 새로운 방향)이 된다.*
+
+<br>
 
 <br>
 
@@ -609,7 +707,7 @@ int main()
 
 <br>
 
-#### STL Pair의 정렬
+### STL Pair의 정렬
 
 pair를 sort함수로 정렬할 경우, 기본적으로 pair의 첫번째 원소를 기준으로 정렬하고, 첫번째 원소가 같다면, 두번째 원소를 사용해서 비교하게 된다.
 
