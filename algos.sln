@@ -53,6 +53,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "iterator", "design_pattern\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SWEA_5650", "SWEA\SWEA_5650\SWEA_5650.vcxproj", "{A168B9AD-9933-45D4-90A6-07B4BFBD81CD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SWEA_5644", "SWEA\SWEA_5644\SWEA_5644.vcxproj", "{687042E3-BC4A-4BA0-99E2-0B9070DC8436}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -261,6 +263,14 @@ Global
 		{A168B9AD-9933-45D4-90A6-07B4BFBD81CD}.Release|x64.Build.0 = Release|x64
 		{A168B9AD-9933-45D4-90A6-07B4BFBD81CD}.Release|x86.ActiveCfg = Release|Win32
 		{A168B9AD-9933-45D4-90A6-07B4BFBD81CD}.Release|x86.Build.0 = Release|Win32
+		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Debug|x64.ActiveCfg = Debug|x64
+		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Debug|x64.Build.0 = Debug|x64
+		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Debug|x86.ActiveCfg = Debug|Win32
+		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Debug|x86.Build.0 = Debug|Win32
+		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Release|x64.ActiveCfg = Release|x64
+		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Release|x64.Build.0 = Release|x64
+		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Release|x86.ActiveCfg = Release|Win32
+		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
