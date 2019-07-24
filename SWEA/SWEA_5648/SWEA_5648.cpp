@@ -1,8 +1,6 @@
 ﻿
 #include <iostream>
 #include <cstdio>
-#include <cstdlib>
-
 using namespace std;
 
 int X[1000];
@@ -16,6 +14,10 @@ int dy[4] = {1, -1, 0, 0};
 
 int main(int argc, char** argv)
 {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	int T;	
 	freopen("sample_input.txt", "r", stdin);
 	cin >> T;

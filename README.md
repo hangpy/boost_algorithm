@@ -58,6 +58,8 @@ Windows SDK version: **10.0.17763.0**
 
 시간을 줄이기 위한 scanf 표준 입출력 사용 (예정) (scanf, cin 상황별 사용 요령)
 
+std::ios_base::sync_with_stdio(false); cin.tie(NULL)로 표준입력속도 끌어올리기 (예정)
+
 C++에서 무한대 표현하기 (예정)
 
 소수점 밑 반올림 (예정)
