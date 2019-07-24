@@ -55,6 +55,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SWEA_5650", "SWEA\SWEA_5650
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SWEA_5644", "SWEA\SWEA_5644\SWEA_5644.vcxproj", "{687042E3-BC4A-4BA0-99E2-0B9070DC8436}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SWEA_5648", "SWEA\SWEA_5648\SWEA_5648.vcxproj", "{6BBCE149-72EA-4320-A3A2-C797B813B3DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -271,6 +273,14 @@ Global
 		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Release|x64.Build.0 = Release|x64
 		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Release|x86.ActiveCfg = Release|Win32
 		{687042E3-BC4A-4BA0-99E2-0B9070DC8436}.Release|x86.Build.0 = Release|Win32
+		{6BBCE149-72EA-4320-A3A2-C797B813B3DA}.Debug|x64.ActiveCfg = Debug|x64
+		{6BBCE149-72EA-4320-A3A2-C797B813B3DA}.Debug|x64.Build.0 = Debug|x64
+		{6BBCE149-72EA-4320-A3A2-C797B813B3DA}.Debug|x86.ActiveCfg = Debug|Win32
+		{6BBCE149-72EA-4320-A3A2-C797B813B3DA}.Debug|x86.Build.0 = Debug|Win32
+		{6BBCE149-72EA-4320-A3A2-C797B813B3DA}.Release|x64.ActiveCfg = Release|x64
+		{6BBCE149-72EA-4320-A3A2-C797B813B3DA}.Release|x64.Build.0 = Release|x64
+		{6BBCE149-72EA-4320-A3A2-C797B813B3DA}.Release|x86.ActiveCfg = Release|Win32
+		{6BBCE149-72EA-4320-A3A2-C797B813B3DA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
