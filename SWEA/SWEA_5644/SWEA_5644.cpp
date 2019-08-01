@@ -10,8 +10,8 @@ struct pos { int y, x; };
 int MA[100], MB[100], map[9][11][11], v[11][11];
 BC BCS[9];
 //				X, 위, 오, 아, 왼
-int drow[5] = { 0, -1, 0, 1, 0 };
-int dcol[5] = { 0, 0, 1, 0, -1 };
+int dy[5] = { 0, -1, 0, 1, 0 };
+int dx[5] = { 0, 0, 1, 0, -1 };
 
 using namespace std;
 
@@ -31,8 +31,8 @@ void bfs(int bc, int y, int x, int c, int p)
 
 		for (int i = 1; i <= 5; i++)
 		{
-			int ny = y + drow[i];
-			int nx = x + dcol[i];
+			int ny = y + y[i];
+			int nx = x + x[i];
 			if (v[y][x] == c || ny < 1 || ny > 10 || nx < 1 || nx >10
 				|| v[ny][nx] > 0) continue;
 			q.push({ ny, nx });
@@ -88,8 +88,8 @@ int main(int argc, char** argv)
 			}
 			max_sum += tmp_sum;
 			if (m == M) break;
-			a_y += drow[MA[m]], a_x += dcol[MA[m]];
-			b_y += drow[MB[m]], b_x += dcol[MB[m]];
+			a_y += dy[MA[m]], a_x += dx[MA[m]];
+			b_y += dy[MB[m]], b_x += dx[MB[m]];
 		}
 		cout << "#" << t << " " << max_sum << endl;
 		memset(map, 0, sizeof(map));

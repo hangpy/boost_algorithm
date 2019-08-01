@@ -7,8 +7,8 @@ using namespace std;
 int map[102][102]{ 0 };
 int dp[4][102][102]{ 0 };
 // down: 0, right: 1, up: 2, left: 3
-int drow[4] = { 1, 0, -1, 0 };
-int dcol[4] = { 0, 1, 0, -1 };
+int dy[4] = { 1, 0, -1, 0 };
+int dx[4] = { 0, 1, 0, -1 };
 
 // ch_d[block][cur_d]
 int ch_d[6][4] = {
@@ -78,14 +78,14 @@ int main(int argc, char** argv)
 						if ((check != 1 && r == i && c == j) || block == -1) break;
 						else if (block == 0)
 						{
-							r += drow[cur_d];
-							c += dcol[cur_d];
+							r += dy[cur_d];
+							c += dx[cur_d];
 						}
 						else if (block > 0 && block < 6)
 						{
 							cur_d = ch_d[block][cur_d];
-							r += drow[cur_d];
-							c += dcol[cur_d];
+							r += dy[cur_d];
+							c += dx[cur_d];
 							dp[cur_d][r][c] = 1;
 							score++;
 						}
@@ -93,13 +93,13 @@ int main(int argc, char** argv)
 						{
 							if (r == wh[block][0].row && c == wh[block][0].col) 
 							{
-								r = wh[block][1].row + drow[cur_d];
-								c = wh[block][1].col + dcol[cur_d];
+								r = wh[block][1].row + dy[cur_d];
+								c = wh[block][1].col + dx[cur_d];
 							}
 							else
 							{
-								r = wh[block][0].row + drow[cur_d];
-								c = wh[block][0].col + dcol[cur_d];
+								r = wh[block][0].row + dy[cur_d];
+								c = wh[block][0].col + dx[cur_d];
 							}
 						}
 					}
