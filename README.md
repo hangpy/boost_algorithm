@@ -98,7 +98,7 @@ F5 key로 바로 다음 중단점으로 이동하기 (예정)
 
 ctrl + shift + space로 매개변수 확인
 
-도구 - 설정 - 키보드 - 주석 단축키 변경 (Ctrl + /, Ctrol + Shift + /)
+도구 - 설정 - 키보드 - 주석 단축키 변경 (Ctrl + /, Ctrl + Shift + /)
 
 자동 인덴트 조정 (들여쓰기 조정) (파일 전체: Ctrl + K + D, 선택: Ctrl  + K + F) (or Alt + F8)
 
@@ -111,6 +111,8 @@ ctrl + shift + space로 매개변수 확인
 전체 변수명 바꾸기: 현재 변수 위치에서 Ctrl + R 두번
 
 Ctrl + / 안먹힐 때: 시스템 키보드 입력이 Microsoft가 아닐경우: Window + Space로 되돌리기
+
+Window + Shift + S : 부분스크린샷
 
 <br>
 
@@ -183,6 +185,8 @@ Ctrl + / 안먹힐 때: 시스템 키보드 입력이 Microsoft가 아닐경우:
 [SWEA 5644. 무선 충전](./SWEA/SWEA_5644)
 
 [SWEA 5648. 원자소멸 시뮬레이션](./SWEA/SWEA_5648)
+
+[SWEA 2382. 미생물 격리](./SWEA/SWEA_2382)
 
 <br>
 
