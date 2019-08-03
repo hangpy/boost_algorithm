@@ -1,41 +1,24 @@
 #include <cstdio>
-#include <iostream>
-#include "board.h"
-#include "main.h"
-
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-int main(int argc, char *argv[])
+int n, m, a[8];
+
+int main()
 {
-	cout << "Hello world!\n";
+	scanf("%d %d", &n, &m);
+	for (int i = 0; i < n; i++) scanf("%d", &a[i]);
 
-	struct pos {
-		int x, y; 
-		/*void operator=(const pos &t)
-		{
-			this->x = t.x;
-			this->y = t.y;
-		}*/
-	};
-
-	Board<pos> board(20, 20);
-	//board.set_board(20, 20);
-	//pos data = { 30, 40 };
-	board.set_data({4,5});
-
-	cout << board.getData().x << ", " << board.getData().y << endl;
-	cout << board.getHeight() << ", " << board.getWidth() << endl;
-
-	
-	struct MyData
+	// а╤гу!
+	sort(a, a + n);
+	vector<int> v(n, 1);
+	for (int i = 0; i < m; i++) v[i] = 0;
+	do
 	{
-		int a, b, c=10, d=20;
-	};
-
-	MyData myData  = { 1,2,3 };
-
-	cout << myData.a << myData.b << myData.c << myData.d << endl;
-	
-
+		for (int i = 0; i < n; i++)
+			if (!v[i]) printf("%d ", a[i]);
+		printf("\n");
+	} while (next_permutation(v.begin(), v.end()));
 	return 0;
 }

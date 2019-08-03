@@ -334,6 +334,34 @@ void combination(int m, int n, int depth, int index)
 
 <br>
 
+더쉬운 방법도 있다
+
+```cpp
+int n, m, a[8];
+
+int main()
+{
+	scanf("%d %d", &n, &m);
+	for (int i = 0; i < n; i++) scanf("%d", &a[i]);
+
+	sort(a, a + n);
+    // 0과 1을 이용한 일종의 비트마스킹 기법과 일맥상통한다.
+    // 4C2의 경우 0011을 순열로 먼저 구한 후 비트마스킹.
+    // 0011, 0101, 0110, ...
+	vector<int> v(n, 1);
+	for (int i = 0; i < m; i++) v[i] = 0;
+	do
+	{
+		for (int i = 0; i < n; i++)
+			if (!v[i]) printf("%d ", a[i]);
+		printf("\n");
+	} while (next_permutation(v.begin(), v.end()));
+	return 0;
+}
+```
+
+
+
 ### 중복조합(Combination with Repetition)
 
 ![](./assets/combination_repitition.gif)
