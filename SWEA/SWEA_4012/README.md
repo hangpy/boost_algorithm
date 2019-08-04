@@ -12,6 +12,8 @@
 
 Combination과 Permutation의 빠른 활용이 관건이었던 문제. 쉬웟음.
 
+vector를 이용한 조합 구현이 돋보였던 문제
+
 <br>
 
 <br>
@@ -97,6 +99,82 @@ int main(int argc, char** argv)
 	return 0;
 }
 ```
+
+<br>
+
+이렇게도 풀 수 있음! 이게 더 쉽다.
+
+```cpp
+#include <iostream>
+#include <cstring>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+int S[17][17], A[8], B[8], MIN;
+
+int main(int argc, char** argv)
+{
+	int T;
+
+	ios::sync_with_stdio(false); cin.tie(NULL);
+	freopen("sample_input.txt", "r", stdin);
+
+	cin >> T;
+	for (int t = 1; t <= T; ++t)
+	{
+		memset(A, 0, sizeof(A));
+		memset(B, 0, sizeof(B));
+		memset(S, 0, sizeof(S));
+		MIN = 123456789;
+
+		int N; cin >> N;
+		for (int i = 1; i <= N; i++)
+		{
+			for (int j = 1; j <= N; j++)
+			{
+				int power; cin >> power;
+				if (i <= j) S[i][j] += power;
+				else S[j][i] += power;
+			}
+		}
+		//comb(N, N / 2, 1, 0);
+		vector<int> v(N, 1);
+		for (int i = 0; i < N / 2; i++) v[i] = 0;
+
+		do
+		{
+			for (int i = 0, a=0, b=0; i < N; i++)
+			{
+				if (v[i] == 0) A[a] = i + 1, a++;
+				else B[b] = i + 1, b++;
+			}
+
+
+			int sum_a = 0, sum_b = 0;
+			for (int i = 0; i < N/2 - 1; i++)
+			{
+				for (int j = i + 1; j < N/2 ; j++)
+				{
+					sum_a += S[A[i]][A[j]];
+					sum_b += S[B[i]][B[j]];
+				}
+			}
+			int diff = abs(sum_a - sum_b);
+			MIN = min(MIN, diff);
+
+		} while (next_permutation(v.begin(), v.end()));
+		
+
+		cout << "#" << t << " " << MIN << endl;
+	}
+	return 0;
+}
+```
+
+
 
 <br>
 

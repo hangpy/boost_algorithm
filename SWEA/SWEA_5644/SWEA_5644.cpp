@@ -31,8 +31,8 @@ void bfs(int bc, int y, int x, int c, int p)
 
 		for (int i = 1; i <= 5; i++)
 		{
-			int ny = y + y[i];
-			int nx = x + x[i];
+			int ny = y + dy[i];
+			int nx = x + dx[i];
 			if (v[y][x] == c || ny < 1 || ny > 10 || nx < 1 || nx >10
 				|| v[ny][nx] > 0) continue;
 			q.push({ ny, nx });

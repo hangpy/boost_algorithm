@@ -4,6 +4,7 @@
 #include <cstring>
 #include <cmath>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -68,7 +69,35 @@ int main(int argc, char** argv)
 				else S[j][i] += power;
 			}
 		}
-		comb(N, N / 2, 1, 0);
+		//comb(N, N / 2, 1, 0);
+
+		vector<int> v(N, 1);
+		for (int i = 0; i < N / 2; i++) v[i] = 0;
+
+		do
+		{
+			for (int i = 0, a=0, b=0; i < N; i++)
+			{
+				if (v[i] == 0) A[a] = i + 1, a++;
+				else B[b] = i + 1, b++;
+			}
+
+
+			int sum_a = 0, sum_b = 0;
+			for (int i = 0; i < N/2 - 1; i++)
+			{
+				for (int j = i + 1; j < N/2 ; j++)
+				{
+					sum_a += S[A[i]][A[j]];
+					sum_b += S[B[i]][B[j]];
+				}
+			}
+			int diff = abs(sum_a - sum_b);
+			MIN = min(MIN, diff);
+
+		} while (next_permutation(v.begin(), v.end()));
+		
+
 		cout << "#" << t << " " << MIN << endl;
 	}
 	return 0;
