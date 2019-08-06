@@ -7,116 +7,44 @@
 
 using namespace std;
 
-int map[11][11], line[2], worker_1[5], worker_2[5], MAX = 0;
+int map[10][10], dp[10][10], boxs[5];
 
-void select_each_box(int n, int m, int c);
-int get_max(const int marr[], int m, int c);
-void perm(int n, int m, int index, int depth, int c);
-
-int get_max(const int marr[], int m, int c)
+int calc(vector<int>& v, int c, int idx, int sum, int val)
 {
-	int max = 0;
-	for (int i = 1; i < m; i++)
-	{
-		vector<int> v(m, 1);
-		for (int j = 0; j < m - i; j++)v[j] = 0;
-		int sum = 0, tmp_max = 0;
-		do
-		{
-			for (int k = 0; k < m; k++)
-			{
-				if (v[k] == 0)
-				{
-					sum += marr[k];
-					tmp_max += pow(marr[k], 2);
-				}
-			}
-			if (sum <= c && max < tmp_max)
-				max = tmp_max;
-
-			sum = 0;
-			tmp_max = 0;
-
-		} while (next_permutation(v.begin(), v.end()));
-	}
+	if (sum > c) return 0;
+	if (idx == v.size()) return val;
 	
-	return max;
+	return max(calc(v, c, idx + 1, sum + v[idx], val + pow(v[idx], 2)), calc(v, c, idx + 1, sum, val));
 }
 
-void perm(int n, int m, int index, int depth, int c)
+int get_max(int y, int x, int c, int n, int m)
 {
-	if (depth == m)
-	{
-		// logic line[0], line[1];
-		// recursive -> start from index 1 because of map
-
-		memset(worker_1, 0, sizeof(worker_1));
-		memset(worker_2, 0, sizeof(worker_2));
-		select_each_box(n, m, c);
-
-
-		return;
-	}
-	for (int i = index; i <= n; i++)
-	{
-		line[depth] = i;
-		perm(n, m, i, depth + 1, c);
-	}
+	vector<int> v;
+	for (int i = x; i < x + m; i++)
+		v.push_back(map[y][i]);
+	return calc(v, c, 0, 0, 0);
 }
 
-void select_each_box(int n, int m, int c)
+void make_dp(int n, int m, int c)
 {
-	// when cannot be duplicated
-	if (line[0] == line[1])
-	{
-		for (int left = 1; left < n - 2 * m + 2; left++)
-		{
-			for (int i = left, idx = 0; i < left + m; i++)
-			{
-				worker_1[idx] = map[line[0]][i];
-				idx++;
-			}
-			for (int right = left + m; right < n - m + 2; right++)
-			{
-				for (int j = right, idx = 0; j < right + m; j++)
-				{
-					worker_2[idx] = map[line[0]][j];
-					idx++;
-				}
-			}
-			int tmp_max = get_max(worker_1, m, c) + get_max(worker_2, m, c);
-			MAX = max(MAX, tmp_max);
+	memset(dp, 0, sizeof(dp));
+	for (int row = 0; row < n; row++)
+		for (int i = 0; i < n - m + 1; i++)
+			dp[row][i] = get_max(row, i, c, n, m);
+}
 
-		}
-	}
-	// when no duplicated
-	else
-	{
-		for (int left = 1; left < n - m + 2; left++)
-		{
-			for (int i = left, idx = 0; i < left + m; i++)
-			{
-				worker_1[idx] = map[line[0]][i];
-				idx++;
-				if (i == left + m - 1)
-				{
-					for (int right = 1; right < n - m + 2; right++)
-					{
-						for (int i = right, idx = 0; i < right + m; i++)
-						{
-							worker_2[idx] = map[line[1]][i];
-							idx++;
-						}
-						int tmp_max = get_max(worker_1, m, c) + get_max(worker_2, m, c);
-						MAX = max(MAX, tmp_max);
+int dfs(int y, int x, int n, int m)
+{
+	int ans = 0;
+	
+	for (int i = x + m; i < n; i++)
+		ans = max(ans, dp[y][x] + dp[y][i]);
+	
+	for (int row = y + 1; row < n; row++)
+		for (int col = 0; col < n; col++)
+			ans = max(ans, dp[y][x] + dp[row][col]);
 
-					}
-				}
-				
-			}
-
-		}
-	}
+	return ans;
 }
 
 
@@ -129,22 +57,23 @@ int main()
 	for (int t = 1; t <= T; t++)
 	{
 		memset(map, 0, sizeof(map));
-		memset(line, 0, sizeof(line));
 
 		int N, M, C;
 		cin >> N >> M >> C;
-		for (int y = 1; y <= N; y++)
-			for (int x = 1; x <= N; x++)
+		for (int y = 0; y < N; y++)
+			for (int x = 0; x < N; x++)
 				cin >> map[y][x];
 		
+		make_dp(N, M, C);
 
-		perm(N, M, 1, 0, C);
-		
+		int MAX = 0;
+		for (int i = 0; i < N; i++)
+			for (int j = 0; j < N - M + 1; j++)
+				MAX = max(MAX, dfs(i, j, N, M));
+
+
 		cout << "#" << t << " " << MAX << "\n";
-		MAX = 0;
 	}
-
-	//perm(5, 2, 1, 0);
 
 	return 0;
 }

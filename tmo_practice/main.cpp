@@ -1,23 +1,43 @@
 #include <cstdio>
-#include <vector>
 #include <algorithm>
+
 using namespace std;
 
-int n, m, a[8];
+int arr[8], result[8];
+
+void r_perm(int n, int m, int index, int depth)
+{
+	if (depth == m)
+	{
+		for (int i = 0; i < m; i++)
+			printf("%d ", result[i]);
+		printf("\n");
+	}
+	else
+	{
+		int tmp = 0;
+		for (int i = index; i < n; i++)
+		{
+			if (tmp == arr[i]) continue;
+			tmp = arr[i];
+			result[depth] = arr[i];
+			r_perm(n, m, i, depth + 1);
+		}
+		
+	}
+}
+
 
 int main()
 {
-	scanf("%d %d", &n, &m);
-	for (int i = 0; i < n; i++) scanf("%d", &a[i]);
-	sort(a, a + n);
-	vector<int> v(n, 1);
-	for (int i = 0; i < m; i++) v[i] = 0;
-	do
-	{
-		for (int i = 0; i < n; i++)
-			if (!v[i]) printf("%d ", a[i]);
-		printf("\n");
-	} while (next_permutation(v.begin(), v.end()));
+	int N, M;
+	scanf("%d%d", &N, &M);
+
+	for (int i = 0; i < N; i++)
+		scanf("%d", &arr[i]);
+	sort(arr, arr + N);
+
+	r_perm(N, M, 0, 0);
 
 	return 0;
 }
