@@ -1,43 +1,31 @@
 #include <cstdio>
 #include <algorithm>
+#include <iostream>
 
 using namespace std;
 
-int arr[8], result[8];
+int arr[5] = { 1, 3, 6, 7, 12 };
 
-void r_perm(int n, int m, int index, int depth)
+int get_max(int n, int c, int idx, int sum, int val)
 {
-	if (depth == m)
-	{
-		for (int i = 0; i < m; i++)
-			printf("%d ", result[i]);
-		printf("\n");
-	}
-	else
-	{
-		int tmp = 0;
-		for (int i = index; i < n; i++)
-		{
-			if (tmp == arr[i]) continue;
-			tmp = arr[i];
-			result[depth] = arr[i];
-			r_perm(n, m, i, depth + 1);
-		}
-		
-	}
+	if (sum > c) return 0;
+	else if (idx == n) return val;
+
+	// 분기
+	int left = get_max(n, c, idx + 1, sum + arr[idx], val + pow(arr[idx], 2));
+	int right = get_max(n, c, idx + 1, sum, val);
+
+	// 모든 분기점이 돌아온 후 처리
+	int result = max(left, right);
+
+	return result;
 }
 
 
 int main()
 {
-	int N, M;
-	scanf("%d%d", &N, &M);
 
-	for (int i = 0; i < N; i++)
-		scanf("%d", &arr[i]);
-	sort(arr, arr + N);
-
-	r_perm(N, M, 0, 0);
+	cout << get_max(5, 13, 0, 0, 0) << endl;
 
 	return 0;
 }

@@ -77,3 +77,106 @@ int main()
 
 	return 0;
 }
+
+
+//#include <stdio.h>
+//#include <string.h>
+//int n, m, c;
+//int arr[12][12];
+//int honey[6];
+//int max = 0;
+//int num[3][4];  //가로로 max, x, y 세로,: 가장 큰, 다음에 큰
+//void dfs(int x, int sum, int db) {
+//
+//	if (sum > c)
+//		return;
+//
+//	if (max < db)
+//		max = db;
+//
+//	for (int i = x + 1; i < m; i++) {
+//		if (sum + honey[i] <= c)
+//			dfs(i, sum + honey[i], db + honey[i] * honey[i]);
+//	}
+//}
+//
+//void func(int x, int y) {
+//
+//	int i;
+//
+//	for (i = 0; i < m; i++) {
+//		honey[i] = arr[x][y + i];     //후보 꿀들 배열에 저장
+//		//printf("%d ",honey[i]);
+//	}
+//	//printf("\n");
+//	// 합이 C이하인 것 찾아 제곱하기
+//	int tempmax;    //탐색할때 각각의 최대값 임시 저장
+//	for (i = 0; i < m; i++) {
+//
+//		dfs(i, honey[i], honey[i] * honey[i]);
+//	}
+//
+//	//범위 확인 --> 지금 현재 최대값과 비교해서 범위 겹치는지도 확인해야함
+//
+//	if (max > num[0][0]) {   //가장 큰 값 갱신
+//		//범위 겹치는지 확인
+//
+//
+//		if (x == num[0][1] && y >= num[0][2] && y <= num[0][2] + m) {    //범위 겹칠 경우
+//			num[0][0] = max;
+//			num[0][1] = x;
+//			num[0][2] = y;
+//		}
+//
+//		else {   //범위 안겹치는 경우
+//			num[1][0] = num[0][0];
+//			num[1][1] = num[0][1];
+//			num[1][2] = num[0][2];
+//			num[0][0] = max;
+//			num[0][1] = x;
+//			num[0][2] = y;
+//
+//		}
+//	}
+//	else if (max > num[1][0]) {    //다음 큰 값 갱신
+//		if (x == num[0][1] && y >= num[0][2] && y <= num[0][2] + m) {
+//
+//		}
+//		else {
+//			num[1][0] = max;
+//			num[1][1] = x;
+//			num[1][2] = y;
+//		}
+//	}
+//
+//}
+//
+//int main(void) {
+//	int T;
+//	scanf("%d", &T);
+//	for (int tc = 1; tc <= T; tc++) {
+//		scanf("%d %d %d", &n, &m, &c);
+//		int i, j;
+//		for (i = 0; i < n; i++) {
+//			for (j = 0; j < n; j++) {
+//				scanf("%d", &arr[i][j]);
+//			}
+//		}
+//
+//
+//		for (i = 0; i < n; i++) {
+//			for (j = 0; j <= n - m; j++) {
+//				func(i, j);
+//				max = 0;
+//			}
+//		}
+//
+//		printf("#%d %d\n", tc, num[0][0] + num[1][0]);
+//
+//		memset(honey, 0, sizeof(honey));
+//		memset(arr, 0, sizeof(arr));
+//		memset(num, 0, sizeof(num));
+//		max = 0;
+//	}
+//	return 0;
+//}
