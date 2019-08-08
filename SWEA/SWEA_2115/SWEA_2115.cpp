@@ -33,7 +33,7 @@ void make_dp(int n, int m, int c)
 			dp[row][i] = get_max(row, i, c, n, m);
 }
 
-int dfs(int y, int x, int n, int m)
+int find_each_max(int y, int x, int n, int m)
 {
 	int ans = 0;
 	
@@ -69,7 +69,7 @@ int main()
 		int MAX = 0;
 		for (int i = 0; i < N; i++)
 			for (int j = 0; j < N - M + 1; j++)
-				MAX = max(MAX, dfs(i, j, N, M));
+				MAX = max(MAX, find_each_max(i, j, N, M));
 
 
 		cout << "#" << t << " " << MAX << "\n";

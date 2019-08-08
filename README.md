@@ -52,6 +52,8 @@ Windows SDK version: **10.0.17763.0**
 
 [정렬시, 유효한 시작 인덱스를 반드시 확인할 것!](./BAEK/BAEK_1197#실수한-부분)
 
+[중복되는 연산을 확인하고 미리 계산할 수 있는지 생각해보자!](./SWEA/SWEA_2115#실수한-부분)
+
 <br>
 
 <br>
@@ -134,6 +136,28 @@ Window + Shift + S : 부분스크린샷
 
 <br>
 
+## &#128509;알고리즘 구현 연습
+
+[Union-Find (Disjoing Set) (서로소 집합)](./algorithms/UnionFind)
+
+[Binary Search (이진 검색)](./algorithms/AL_BinarySearch)
+
+<br>
+
+<br>
+
+<br>
+
+## &#128507;자료구조 구현 연습
+
+[Binary Tree (이진 트리)](./data_structure/DS_BinaryTree)
+
+<br>
+
+<br>
+
+<br>
+
 ## &#128511; 알고리즘에 대한 직관적, 의미론적인 접근
 
 [재귀함수(Recursive Function)에 대한 프로그래밍적 고찰](./intuitive/#재귀함수에-대한-고찰)
@@ -193,6 +217,8 @@ Window + Shift + S : 부분스크린샷
 [SWEA 2382. 미생물 격리](./SWEA/SWEA_2382)
 
 [SWEA 4012. 요리사 (조합, 순열 문제)](./SWEA/SWEA_4012)
+
+[SWEA 2115. 벌꿀채취](./SWEA/SWEA_2115)
 
 <br>
 
