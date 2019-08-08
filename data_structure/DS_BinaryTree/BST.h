@@ -4,8 +4,20 @@ using namespace std;
 
 #pragma once
 
+/*
+	========================================
+	All Declaration
+	========================================
+*/
 template<typename T> class BST;
+template<typename T> class Node;
 
+
+/*
+	========================================
+	Node<T> Declaration
+	========================================
+*/ 
 template<typename T>
 class Node
 {
@@ -25,6 +37,11 @@ public:
 	bool operator<(const T &rhs) const;
 };
 
+/*
+	========================================
+	Node<T> Definition
+	========================================
+*/
 template<typename T>
 inline Node<T>::Node(T pData, Node<T> * pLeft, Node<T> * pRight)
 	:mData(pData), left(pLeft), right(pRight)
@@ -56,6 +73,11 @@ inline bool Node<T>::operator<(const T & rhs) const
 }
 
 
+/*
+	========================================
+	BST<T> Declaration
+	========================================
+*/
 template<typename T>
 class BST
 {
@@ -76,6 +98,11 @@ public:
 
 };
 
+/*
+	========================================
+	BST<T> Definition
+	========================================
+*/
 template<typename T>
 inline Node<T>* BST<T>::searchNode(T pData, Node<T> *pCurr)
 {
@@ -131,9 +158,7 @@ inline void BST<T>::insertNode(T pData)
 			if (curr->mData < pData) curr->right = new Node<T>(pData);
 			else curr->left = new Node<T>(pData);
 		}
-		
 	}
-	
 }
 
 template<typename T>
