@@ -54,6 +54,8 @@ Windows SDK version: **10.0.17763.0**
 
 [중복되는 연산을 확인하고 미리 계산할 수 있는지 생각해보자!](./SWEA/SWEA_2115#실수한-부분)
 
+[제공되는 기회 수(카운트 조건)를  놓치지 말자!](./SWEA/SWEA_1949#실수한-부분)
+
 <br>
 
 <br>
@@ -89,6 +91,8 @@ C++에서 무한대 표현하기 (예정)
 vector에서 중복 원소 제거하기 (예정)
 
 for문 안에서 증감부 조작으로 로직 간소화하기 (예정)
+
+0110101 입력에서 한자리씩 받고 싶을 경우, 그냥 문자열로 받도록 하자 (예정)
 
 <br>
 
@@ -182,6 +186,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 3055. 탈출](./BAEK_3055)
 
+[SWEA 1949. 등산로 조정](./SWEA/SWEA_1949)
+
 <br>
 
 <br>
@@ -195,6 +201,8 @@ Window + Shift + S : 부분스크린샷
 [BAEK 9095. 1, 2, 3 더하기](./BAEK_9095)
 
 [algospot. WILDCARD](./solving_strategy/p218_inter_wildcard/p218_inter_wildcard.cpp)
+
+[BAEK 1915. 가장 큰 정사각형](./BAEK/BAEK_1915)
 
 <br>
 
