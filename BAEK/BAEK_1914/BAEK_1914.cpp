@@ -1,3 +1,6 @@
+﻿// BAEK_1914. 하노이 탑
+//
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,11 +11,11 @@ ull dp[101];
 vector<char> bigNumber;
 
 // when N > 64
-void cal_big(vector<char> &number)
+void calc_big(vector<char> &number)
 {
 	// *2 + 1
 	int len = number.size(), idx = 0;
-	
+
 	int trans = 0;
 	while (idx < len)
 	{
@@ -26,7 +29,7 @@ void cal_big(vector<char> &number)
 		}
 		else
 		{
-			int tmp = 2 * x  + trans;
+			int tmp = 2 * x + trans;
 			trans = tmp / 10;
 			mod = tmp % 10;
 		}
@@ -43,9 +46,9 @@ void hanoi(int n, int s, int e)
 		cout << s << " " << e << "\n";
 		return;
 	}
-	hanoi(n-1, s,6-s-e);
+	hanoi(n - 1, s, 6 - s - e);
 	hanoi(1, s, e);
-	hanoi(n-1, 6-s-e,e);
+	hanoi(n - 1, 6 - s - e, e);
 }
 ull hanoi_n(int n)
 {
@@ -53,36 +56,46 @@ ull hanoi_n(int n)
 	if (dp[n]) return dp[n];
 	return dp[n] = 2 * hanoi_n(n - 1) + 1;
 }
+
+//void big_hanoi_n(int n)
+//{
+//	if (n == 1)
+//	{
+//		bigNumber.push_back('1');
+//		return;
+//	}
+//	else
+//	{
+//		big_hanoi_n(n - 1);
+//		calc_big(bigNumber);
+//		return;
+//	}
+//}
+
 void big_hanoi_n(int n)
 {
-	if (n == 1)
-	{
-		bigNumber.push_back('1');
-		return;
-	}
-	else
-	{
-		big_hanoi_n(n - 1);
-		cal_big(bigNumber);
-		return;
-	}
-}
-
-void f()
-{
-	int *a = new int(10);
-
-	tr1::shared_ptr<int> spInt(a);
-	cout << *spInt << endl;
+	if(n>=1) bigNumber.push_back('1');
+	for (int i = 0; i < n - 1; i++)
+		calc_big(bigNumber);
 }
 
 int main()
 {
+	int N;
+	ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+	cin >> N;
 
-	double a = -10.3;
-	int b = static_cast<int>(a);
-	cout <<  << endl;
+	if (N <= 64) cout << hanoi_n(N) << endl;
+	else
+	{
+		big_hanoi_n(N);
+		reverse(bigNumber.begin(), bigNumber.end());
+		for (auto n : bigNumber)
+			cout << n;
+		cout << endl;
+	}
 
+	if (N <= 20) hanoi(N, 1, 3);
 
 	return 0;
 }
