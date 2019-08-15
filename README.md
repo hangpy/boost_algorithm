@@ -248,6 +248,8 @@ Window + Shift + S : 부분스크린샷
 
 [SWEA 2115. 벌꿀채취](./SWEA/SWEA_2115)
 
+[SWEA 2477. 차량 정비소](./SWEA/SWEA_2477)
+
 <br>
 
 <br>
