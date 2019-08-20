@@ -91,6 +91,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DS_ObserverPattern", "desig
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SWEA_1953", "SWEA\SWEA_1953\SWEA_1953.vcxproj", "{837233AA-A55A-4EAF-A2F6-13812B8C015F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SWEA_5653", "SWEA\SWEA_5653\SWEA_5653.vcxproj", "{A1380CB4-6811-421D-A22F-E32781A51622}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -451,6 +453,14 @@ Global
 		{837233AA-A55A-4EAF-A2F6-13812B8C015F}.Release|x64.Build.0 = Release|x64
 		{837233AA-A55A-4EAF-A2F6-13812B8C015F}.Release|x86.ActiveCfg = Release|Win32
 		{837233AA-A55A-4EAF-A2F6-13812B8C015F}.Release|x86.Build.0 = Release|Win32
+		{A1380CB4-6811-421D-A22F-E32781A51622}.Debug|x64.ActiveCfg = Debug|x64
+		{A1380CB4-6811-421D-A22F-E32781A51622}.Debug|x64.Build.0 = Debug|x64
+		{A1380CB4-6811-421D-A22F-E32781A51622}.Debug|x86.ActiveCfg = Debug|Win32
+		{A1380CB4-6811-421D-A22F-E32781A51622}.Debug|x86.Build.0 = Debug|Win32
+		{A1380CB4-6811-421D-A22F-E32781A51622}.Release|x64.ActiveCfg = Release|x64
+		{A1380CB4-6811-421D-A22F-E32781A51622}.Release|x64.Build.0 = Release|x64
+		{A1380CB4-6811-421D-A22F-E32781A51622}.Release|x86.ActiveCfg = Release|Win32
+		{A1380CB4-6811-421D-A22F-E32781A51622}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
