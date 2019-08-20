@@ -12,7 +12,7 @@
 
 시간을 줄이기 위한 scanf 표준 입출력 사용 (예정)
 
-C++에서 무한대 표현하기 (예정)
+[C++에서 무한대 표현하기](#C++에서-무한대-표현하기)
 
 소수점 밑 반올림 (예정)
 
@@ -35,6 +35,44 @@ vector에서 중복 원소 제거하기 (예정)
 for문 안에서 증감부 조작으로 로직 간소화하기 (예정)
 
 0110101 입력에서 한자리씩 받고 싶을 경우, 그냥 문자열로 받도록 하자 (예정)
+
+<br>
+
+<br>
+
+<br>
+
+## C++에서 무한대 표현하기
+
+`-1`로 무한대를 표현할 수 없는 상황에서 수학적 의미의 무한대를 프로그래밍 적으로 표현하기에는 다소 무리가 있다. 때문에 해당 자료형에서 가질 수 있는 가장 큰 값을 무한대로 두는 FANCY한 방법을 쓰도록 하자
+
+```cpp
+#include <limits>
+
+int main()
+{
+	unsigned int val1;
+	int val2;
+    double val3;
+    
+    // numeric_limits<무한대를 표현할 자료형>::max()
+	val1 = numeric_limits<unsigned int>::max();
+	val2 = numeric_limits<int>::max();
+    val3 = numeric_limits<double>::max();
+    
+	cout << val1 << endl;
+    cout << val2 << endl;
+    cout << val3 << endl;
+    
+    /* 결과
+    4294967295
+    2147483647
+    1.79769e+308
+    */
+
+	return 0;
+}
+```
 
 <br>
 
