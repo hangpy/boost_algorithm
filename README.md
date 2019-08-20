@@ -70,7 +70,7 @@ Windows SDK version: **10.0.17763.0**
 
 std::ios_base::sync_with_stdio(false); cin.tie(NULL)로 표준입력속도 끌어올리기 (예정)
 
-C++에서 무한대 표현하기 (예정)
+[무한대 표현하기](./technique/#무한대-표현하기)
 
 소수점 밑 반올림 (예정)
 
