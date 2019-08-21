@@ -202,6 +202,8 @@ Window + Shift + S : 부분스크린샷
 
 [SWEA 1953. 탈주범 검거](./SWEA/SWEA_1953) (DFS, BFS 확실하게 구별해서 풀기)
 
+[SWEA 1952. 수영장](./SWEA/SWEA_1952) (재귀호출을 이용한 DFS)
+
 <br>
 
 <br>
