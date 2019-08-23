@@ -204,6 +204,8 @@ Window + Shift + S : 부분스크린샷
 
 [SWEA 1952. 수영장](./SWEA/SWEA_1952) (재귀호출을 이용한 DFS)
 
+[SWEA 4008. 숫자 만들기](./SWEA/SWEA_4008) (오히려 순열로 푸는게 빨랐던 문제)
+
 <br>
 
 <br>
