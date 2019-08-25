@@ -276,6 +276,8 @@ Window + Shift + S : 부분스크린샷
 
 [SWEA 2383. 점심 식사시간](./SWEA/SWEA_2383) (2^n 순열조합 next_permutation()으로 결정하기)
 
+[BAEK 14499. 주사위 굴리기](./BAEK/BAEK_14499)
+
 <br>
 
 <br>
@@ -289,6 +291,8 @@ Window + Shift + S : 부분스크린샷
 [BAEK 2217. 로프](./BAEK_2217)
 
 [BAEK 4716. 풍선](./BAEK_4716)
+
+[BAEK 13458. 시험감독](./BAEK/BAEK_13458)
 
 <br>
 
