@@ -218,6 +218,12 @@ Window + Shift + S : 부분스크린샷
 
 [SWEA 2112. 보호 필름](./SWEA/SWEA_2112) (중첩된 순열 조합)
 
+[BAEK 14500. 테트로미노](./BAEK/BAEK_14500) (DFS + 예외케이스 분기 후 최대값 갱신)
+
+[BAEK 14501. 퇴사](./BAEK/BAEK_14501) (DFS, DP)
+
+[BAEK 14502. 연구소](./BAEK/BAEK_14502) (순열 조합과 BFS)
+
 <br>
 
 <br>
