@@ -228,6 +228,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 13460. 구슬 탈출2](./BAEK/BAEK_13460) (상태를 노드로써 BFS 처리) 🌟🌟🌟
 
+[BAEK 12100. 2048(Easy)](./BAEK/BAEK_12100)
+
 <br>
 
 <br>
@@ -297,6 +299,8 @@ Window + Shift + S : 부분스크린샷
 [BAEK 15685. 드래곤 커브](./BAEK/BAEK_15685) (규칙 찾아내기) 🌟
 
 [BAEK 15683. 감시 카메라](./BAEK/BAEK_15683) (순열 조합) 
+
+[BAEK 14503. 로봇 청소기](./BAEK/BAEK_14503)
 
 <br>
 
