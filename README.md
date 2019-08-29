@@ -278,7 +278,7 @@ Window + Shift + S : 부분스크린샷
 
 [SWEA 2382. 미생물 격리](./SWEA/SWEA_2382)
 
-[SWEA 4012. 요리사 (조합, 순열 문제)](./SWEA/SWEA_4012)
+[SWEA 4012. 요리사](./SWEA/SWEA_4012) (순열 조합)
 
 [SWEA 2115. 벌꿀채취](./SWEA/SWEA_2115)
 
@@ -301,6 +301,8 @@ Window + Shift + S : 부분스크린샷
 [BAEK 15683. 감시 카메라](./BAEK/BAEK_15683) (순열 조합) 
 
 [BAEK 14503. 로봇 청소기](./BAEK/BAEK_14503)
+
+[BAEK 14889. 스타트 링크](./BAEK/BAEK_14889) (SWEA 4012와 똑같은 유형)
 
 <br>
 
