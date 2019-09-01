@@ -106,7 +106,7 @@ std::ios_base::sync_with_stdio(false); cin.tie(NULL)로 표준입력속도 끌�
 
 문자열 처리 관련 STL 활용밥 숙지 (예정)
 
-vector에서 중복 원소 제거하기 (예정)
+[vector(배열)에서 중복 원소 제거하기](./technique/#vector(배열)에서-중복-원소-제거하기)
 
 for문 안에서 증감부 조작으로 로직 간소화하기 (예정)
 
