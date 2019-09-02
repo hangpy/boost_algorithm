@@ -230,6 +230,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 12100. 2048(Easy)](./BAEK/BAEK_12100)
 
+[BAEK 15686. 치킨배달](./BAEK/BAEK_15686) (순열 조합, 맨 처음에 시간초과)
+
 <br>
 
 <br>
