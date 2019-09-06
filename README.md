@@ -232,6 +232,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 15686. 치킨배달](./BAEK/BAEK_15686) (순열 조합, 맨 처음에 시간초과)
 
+[BAEK 17406. 배열돌리기4](./BAEK/BAEK_17406)
+
 <br>
 
 <br>
@@ -311,6 +313,8 @@ Window + Shift + S : 부분스크린샷
 [BAEK 5373. 큐빙](./BAEK/BAEK_5373) 🌟🌟
 
 [BAEK 16235. 나무 재테크](./BAEK/BAEK_16235)
+
+[BAEK 2468. 안전 영역](./BAEK/BAEK_2468)
 
 <br>
 
