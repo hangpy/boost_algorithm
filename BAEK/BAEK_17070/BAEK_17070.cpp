@@ -10,8 +10,8 @@ int N, MAP[17][17], hordp[17][17], crodp[17][17], verdp[17][17];
 int main()
 {
 	ios::sync_with_stdio(0), cin.tie(0);
-
 	cin >> N;
+
 	for (int y = 1; y <= N; y++)
 		for (int x = 1; x <= N; x++)
 			cin >> MAP[y][x];

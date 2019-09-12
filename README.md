@@ -236,6 +236,10 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 17135. 캐슬 디펜스](./BAEK/BAEK_17135) (문제 함정 및 중복 타겟 가능성) 🌟🌟🌟
 
+[BAEK 17070. 파이프 옮기기](./BAEK/BAEK_17070) (DP)
+
+[BAEK 16637. 괄호 추가하기](./BAEK/BAEK_16637) (+ Stack 쓰는 방법)
+
 <br>
 
 <br>
