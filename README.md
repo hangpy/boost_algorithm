@@ -391,3 +391,8 @@ Window + Shift + S : 부분스크린샷
 <br>
 
 <br>
+
+## &#127821; 이분탐색
+
+[BAEK 1920. 수찾기](./BAEK/BAEK_1920) (STL \<algorithm\> binary_search() 활용법)
+
