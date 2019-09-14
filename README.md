@@ -396,3 +396,4 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 1920. 수찾기](./BAEK/BAEK_1920) (STL \<algorithm\> binary_search() 활용법)
 
+[BAEK 2805. 나무자르기](./BAEK/BAEK_2805) (이분탐색 착안점 중요) 🌟🌟
