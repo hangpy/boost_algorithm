@@ -74,6 +74,8 @@ Windows SDK version: **10.0.17763.0**
 
 [문자열을 입력받을 때 반드시 null값을 고려하자!](./BAEK/BAEK_13460#실수한-부분)
 
+[중간 입시결과값에 대한 자료형을 주의하자!](./BAEK/BAEK_1654#실수한-부분)
+
 <br>
 
 <br>
@@ -397,3 +399,11 @@ Window + Shift + S : 부분스크린샷
 [BAEK 1920. 수찾기](./BAEK/BAEK_1920) (STL \<algorithm\> binary_search() 활용법)
 
 [BAEK 2805. 나무자르기](./BAEK/BAEK_2805) (이분탐색 착안점 중요) 🌟🌟
+
+[BAEK 1654. 랜선자르기](./BAEK/BAEK_1654) (종료조건, 자료형 실수)  🌟🌟🌟
+
+<br>
+
+<br>
+
+<br>
