@@ -39,34 +39,23 @@
 
 using namespace std;
 
-long long K, N, LANS[10000], MAX, ANS;
+int K, N, LANS[10000], MAX, ANS;
 
-void bs(long long s, long long e)
+void bs(int s, int e)
 {
-	if (s == e)
-	{
-		int sum = 0;
-		for (int i = 0; i < K; i++) sum += (LANS[i] / e);
-		if (sum >= N)
-		{
-			ANS = ANS < e ? e : ANS;
-			return;
-		}
-		return;
-	}
+	if (s > e) return;
 
-	long long middle = (s + e) / 2;
-	
+	int m = s + (e - s) / 2;
+
 	int sum = 0;
-	for (int i = 0; i < K; i++) sum += (LANS[i] / middle);
+	for (int i = 0; i < K; i++) sum += (LANS[i] / m);
 
 	if (sum >= N)
 	{
-		ANS = ANS < middle ? middle : ANS;
-		if (middle == s) bs(middle + 1, e);
-		else bs(middle, e);
+		ANS = ANS < m ? m : ANS;
+		bs(m + 1, e);
 	}
-	else bs(s, middle);
+	else bs(s, m - 1);
 }
 
 int main()
@@ -79,7 +68,6 @@ int main()
 	}
 	bs(1, MAX);
 	cout << ANS << endl;
-
 	return 0;
 }
 
@@ -107,6 +95,45 @@ long long middle = (s + e) / 2;
 <br>
 
 ### 이분 탐색에서 양측 값을 모두 검사 할 수 있는 종료조건을 구현하자.
+
+```cpp
+void bs(int s, int e)
+{
+	if (s > e) return;
+
+	int m = s + (e - s) / 2;
+
+	int sum = 0;
+	for (int i = 0; i < K; i++) sum += (LANS[i] / m);
+
+	if (sum >= N)
+	{
+		ANS = ANS < m ? m : ANS;
+		bs(m + 1, e);
+	}
+	else bs(s, m - 1);
+}
+```
+
+이렇게 구현하는게 젤 편하고 확실함. 아래처럼 구현도 가능
+
+```cpp
+long long a = 1, b = MAX;
+int ans = 0;
+while (a <= b)
+{
+	long long m = (a + b) / 2; int tsum = 0;
+	for (int i = 0; i < K; i++) tsum += LANS[i] / m;
+	if (tsum >= N) a = m + 1, ans = ans < m ? m : ans;
+	else b = m - 1;
+}
+```
+
+<br>
+
+
+
+아래는 내가 맨 처음에 구현했던 방법
 
 ```cpp
 void bs(long long s, long long e)
