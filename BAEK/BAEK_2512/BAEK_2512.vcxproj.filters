@@ -23,10 +23,7 @@
     <ClCompile Include="pch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="BAEK_1654.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="first_try.cpp">
+    <ClCompile Include="BAEK_2512.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

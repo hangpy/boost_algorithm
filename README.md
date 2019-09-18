@@ -402,6 +402,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 1654. 랜선자르기](./BAEK/BAEK_1654) (종료조건, 자료형 실수)  🌟🌟🌟
 
+[BAEK 2512. 예산](./BAEK/BAEK_2512)
+
 <br>
 
 <br>

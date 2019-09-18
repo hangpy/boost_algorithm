@@ -4,34 +4,23 @@
 
 using namespace std;
 
-long long K, N, LANS[10000], MAX, ANS;
+int K, N, LANS[10000], MAX, ANS;
 
-void bs(long long s, long long e)
+void bs(int s, int e)
 {
-	if (s == e)
-	{
-		int sum = 0;
-		for (int i = 0; i < K; i++) sum += (LANS[i] / e);
-		if (sum >= N)
-		{
-			ANS = ANS < e ? e : ANS;
-			return;
-		}
-		return;
-	}
+	if (s > e) return;
 
-	long long middle = (s + e) / 2;
-	
+	int m = s + (e - s) / 2;
+
 	int sum = 0;
-	for (int i = 0; i < K; i++) sum += (LANS[i] / middle);
+	for (int i = 0; i < K; i++) sum += (LANS[i] / m);
 
 	if (sum >= N)
 	{
-		ANS = ANS < middle ? middle : ANS;
-		if (middle == s) bs(middle + 1, e);
-		else bs(middle, e);
+		ANS = ANS < m ? m : ANS;
+		bs(m + 1, e);
 	}
-	else bs(s, middle);
+	else bs(s, m - 1);
 }
 
 int main()
@@ -42,8 +31,23 @@ int main()
 		cin >> LANS[i];
 		MAX = MAX < LANS[i] ? LANS[i] : MAX;
 	}
+
 	bs(1, MAX);
+	
 	cout << ANS << endl;
 
 	return 0;
 }
+
+
+
+
+//long long a = 1, b = MAX;
+//int ans = 0;
+//while (a <= b)
+//{
+//	long long m = (a + b) / 2; int tsum = 0;
+//	for (int i = 0; i < K; i++) tsum += LANS[i] / m;
+//	if (tsum >= N) a = m + 1, ans = ans < m ? m : ans;
+//	else b = m - 1;
+//}
