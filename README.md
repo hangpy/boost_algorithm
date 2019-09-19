@@ -406,6 +406,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 2104. 부분배열 고르기](./BAEK/BAEK_2104) (엄청 중요)  🌟🌟🌟
 
+[BAEK 10816. 숫자카드](./BAEK/BAEK_10816) (최적화)
+
 <br>
 
 <br>
