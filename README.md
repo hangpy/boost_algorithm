@@ -76,6 +76,8 @@ Windows SDK version: **10.0.17763.0**
 
 [중간 입시결과값에 대한 자료형을 주의하자!](./BAEK/BAEK_1654#실수한-부분)
 
+C++에서 endl 쓰지말자
+
 <br>
 
 <br>
@@ -372,9 +374,11 @@ Window + Shift + S : 부분스크린샷
 
 <br>
 
-## &#127819;최소 스패닝 트리 (MST)
+## &#127819;최소 스패닝 트리 (MST) + Union-Find
 
 [BAEK 1197. 최소 스패닝 트리](./BAEK/BAEK_1197)  (Kruskal 이용)
+
+[BAEK 4195. 친구 네트워크](./BAEK/BAEK_4195) 🌟🌟🌟
 
 <br>
 
