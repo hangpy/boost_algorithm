@@ -376,11 +376,13 @@ Window + Shift + S : 부분스크린샷
 
 ## &#127819;최소 스패닝 트리 (MST) + Union-Find
 
-[BAEK 1197. 최소 스패닝 트리](./BAEK/BAEK_1197)  (Kruskal 이용)
+[BAEK 1197. 최소 스패닝 트리](./BAEK/BAEK_1197)  (Kruskal 이용) (MST)
 
-[BAEK 4195. 친구 네트워크](./BAEK/BAEK_4195) 🌟🌟🌟
+[BAEK 4195. 친구 네트워크](./BAEK/BAEK_4195) (endl) 🌟🌟🌟
 
 [BAEK 3780. 네트워크 연결](./BAEK/BAEK_3780) (압축 기법) 🌟🌟
+
+[BAEK 10775. 공항](./BAEK/BAEK_10775)
 
 <br>
 
