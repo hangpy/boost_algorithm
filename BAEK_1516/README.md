@@ -1,6 +1,6 @@
 
 
-### &#128526;[문제 링크](https://www.acmicpc.net/problem/2667)
+### &#128526;[문제 링크](https://www.acmicpc.net/problem/1516)
 
 <br>
 
