@@ -244,6 +244,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 16637. 괄호 추가하기](./BAEK/BAEK_16637) (+ Stack 쓰는 방법)
 
+[BAEK 3085. 사탕 게임](./BAEK/BAEK_3085) (빠른 접근)
+
 <br>
 
 <br>
@@ -384,6 +386,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 10775. 공항](./BAEK/BAEK_10775)
 
+[BAEK 9938. 방 청소](./BAEK/BAEK_9938) (그래프적 사고) 🌟🌟🌟
+
 <br>
 
 <br>
@@ -395,6 +399,8 @@ Window + Shift + S : 부분스크린샷
 [BAEK 3613. Java vs C++](./BAEK_3613)
 
 [BAEK 9935. 문자열 폭발](./BAEK_9935)
+
+[BAEK 5052. 전화번호 목록](./BAEK/BAEK_5052) (Trie) 🌟
 
 <br>
 
@@ -420,4 +426,4 @@ Window + Shift + S : 부분스크린샷
 
 <br>
 
-<br>
+<br> 
