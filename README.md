@@ -328,6 +328,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 2468. 안전 영역](./BAEK/BAEK_2468)
 
+[BAEK 17144. 안녕! 미세먼지](./BAEK/BAEK_17144)
+
 <br>
 
 <br>
