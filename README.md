@@ -330,6 +330,8 @@ Window + Shift + S : 부분스크린샷
 
 [BAEK 17144. 안녕! 미세먼지](./BAEK/BAEK_17144)
 
+[BAEK 17281. ⚾](./BAEK/BAEK_17281)
+
 <br>
 
 <br>
