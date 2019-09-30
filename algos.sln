@@ -181,6 +181,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BAEK_17144", "BAEK\BAEK_171
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BAEK_17281", "BAEK\BAEK_17281\BAEK_17281.vcxproj", "{71186176-49C1-4B81-88A6-8726CC658144}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BAEK_17143", "BAEK\BAEK_17143\BAEK_17143.vcxproj", "{F501A359-1721-40A9-8B8D-FBD171BFB135}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -901,6 +903,14 @@ Global
 		{71186176-49C1-4B81-88A6-8726CC658144}.Release|x64.Build.0 = Release|x64
 		{71186176-49C1-4B81-88A6-8726CC658144}.Release|x86.ActiveCfg = Release|Win32
 		{71186176-49C1-4B81-88A6-8726CC658144}.Release|x86.Build.0 = Release|Win32
+		{F501A359-1721-40A9-8B8D-FBD171BFB135}.Debug|x64.ActiveCfg = Debug|x64
+		{F501A359-1721-40A9-8B8D-FBD171BFB135}.Debug|x64.Build.0 = Debug|x64
+		{F501A359-1721-40A9-8B8D-FBD171BFB135}.Debug|x86.ActiveCfg = Debug|Win32
+		{F501A359-1721-40A9-8B8D-FBD171BFB135}.Debug|x86.Build.0 = Debug|Win32
+		{F501A359-1721-40A9-8B8D-FBD171BFB135}.Release|x64.ActiveCfg = Release|x64
+		{F501A359-1721-40A9-8B8D-FBD171BFB135}.Release|x64.Build.0 = Release|x64
+		{F501A359-1721-40A9-8B8D-FBD171BFB135}.Release|x86.ActiveCfg = Release|Win32
+		{F501A359-1721-40A9-8B8D-FBD171BFB135}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
